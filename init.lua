@@ -613,7 +613,7 @@ require('lazy').setup({
         gopls = {
           settings = {
             gopls = {
-              kkkgofumpt = true,
+              gofumpt = true,
               completeUnimported = true,
               usePlaceholders = true,
               analyses = {
