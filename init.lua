@@ -750,11 +750,20 @@ require('lazy').setup({
         lua = { 'stylua' },
         go = { 'goimports' },
         rust = { 'rustfmt' },
+        sql = { 'sql_formatter' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      },
+      formatters = {
+        sql_formatter = {
+          -- Conform will automatically look for formatters in your PATH, but you can also
+          -- specify the exact command to run for a formatter.
+          command = 'sql-formatter',
+          args = { '--language', 'clickhouse' },
+        },
       },
     },
   },
@@ -950,6 +959,7 @@ require('lazy').setup({
         'css',
         'helm',
         'scss',
+        'sql',
       }
       require('nvim-treesitter').install(parsers)
       vim.api.nvim_create_autocmd('FileType', {
