@@ -646,6 +646,20 @@ require('lazy').setup({
         vue_ls = {}, -- For Vue 3, use volar instead of vetur
 
         stylua = {}, -- Used to format Lua code
+        jsonls = {
+          settings = {
+            json = {
+              validate = true,
+              hover = true,
+              completion = true,
+              schemas = {
+                -- You can find many different JSON schemas on https://www.schemastore.org/json/
+                ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+                ['https://json.schemastore.org/prettierrc.json'] = '/.prettierrc.{json,yml}',
+              },
+            },
+          },
+        },
 
         yamlls = {
           settings = {
@@ -751,6 +765,7 @@ require('lazy').setup({
         go = { 'goimports' },
         rust = { 'rustfmt' },
         sql = { 'sql_formatter' },
+        json = { 'prettierd' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
