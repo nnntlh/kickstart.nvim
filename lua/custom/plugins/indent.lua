@@ -29,6 +29,18 @@ return {
         pattern = 'go',
         callback = function() set_indent(4, false) end,
       })
+
+      -- Makefile indentation
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'make',
+        group = group,
+        callback = function()
+          vim.bo.expandtab = false
+          vim.bo.tabstop = 4
+          vim.bo.shiftwidth = 4
+          vim.bo.softtabstop = 0
+        end,
+      })
     end,
   },
 }
